@@ -1,0 +1,54 @@
+
+workflows:
+  build_and_release:
+    name: Build Call Tracker+ App
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+      vars:
+        APP_ID: "com.dynastybuildersacademy.calltrackerplus"
+        BUNDLE_ID: "com.dynastybuildersacademy.calltrackerplus"
+      groups:
+        - app_store_credentials
+        - google_credentials
+      android_signing:
+        - google_play
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: "com.dynastybuildersacademy.calltrackerplus"
+
+    scripts:
+      - name: print api key env vars (test only)
+        script: |
+          echo "Key ID: $APP_STORE_CONNECT_KEY_ID"
+          echo "Issuer ID: $APP_STORE_CONNECT_ISSUER_ID"
+          echo "Private Key (start):"
+          echo "$APP_STORE_CONNECT_PRIVATE_KEY" | cut -c -40
+
+      - name: install dependencies
+        script: flutter pub get
+
+      - name: run tests
+        script: flutter test
+
+      - name: build android (.aab)
+        script: flutter build appbundle --release --build-name=1.0.0 --build-number=1
+
+      - name: build ios (.ipa)
+        script: flutter build ipa --release --no-codesign
+
+    artifacts:
+      - build/**/outputs/**/*.aab
+      - build/ios/ipa/*.ipa
+
+    publishing:
+      google_play:
+        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
+        track: internal
+      app_store_connect:
+        api_key:
+          key_id: $APP_STORE_CONNECT_KEY_ID
+          issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+          private_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        submit_to_testflight: true
