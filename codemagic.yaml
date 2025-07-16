@@ -10,12 +10,12 @@ workflows:
         APP_ID: "com.dynastybuildersacademy.calltrackerplus"
         BUNDLE_ID: "com.dynastybuildersacademy.calltrackerplus"
       groups:
-        - DBA_APP_STORE_KEY
+        - app_store_credentials
       ios_signing:
         distribution_type: app_store
         bundle_identifier: "com.dynastybuildersacademy.calltrackerplus"
     integrations:
-      app_store_connect: DBA_APP_STORE_KEY
+      app_store_connect: app_store_credentials
     scripts:
       - name: print api key env vars (test only)
         script: |
