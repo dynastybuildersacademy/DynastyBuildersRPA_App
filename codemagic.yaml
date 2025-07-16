@@ -11,7 +11,6 @@ workflows:
         BUNDLE_ID: "com.dynastybuildersacademy.calltrackerplus"
       groups:
         - DBA_APP_STORE_KEY
-        - google_credentials
       android_signing:
         - google_play
       ios_signing:
@@ -44,9 +43,6 @@ workflows:
       - build/ios/ipa/*.ipa
 
     publishing:
-      google_play:
-        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        track: internal
       app_store_connect:
         auth: integration
         submit_to_testflight: true
