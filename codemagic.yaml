@@ -47,7 +47,7 @@ workflows:
         credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
         track: internal
       app_store_connect:
-        $DBA_APP_STORE_KEY
+        DBA_APP_STORE_KEY:
           key_id: $APP_STORE_CONNECT_KEY_ID
           issuer_id: $APP_STORE_CONNECT_ISSUER_ID
           private_key: $APP_STORE_CONNECT_PRIVATE_KEY
