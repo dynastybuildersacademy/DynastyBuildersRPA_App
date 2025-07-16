@@ -11,8 +11,6 @@ workflows:
         BUNDLE_ID: "com.dynastybuildersacademy.calltrackerplus"
       groups:
         - DBA_APP_STORE_KEY
-      android_signing:
-        - google_play
       ios_signing:
         distribution_type: app_store
         bundle_identifier: "com.dynastybuildersacademy.calltrackerplus"
