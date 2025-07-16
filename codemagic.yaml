@@ -10,7 +10,7 @@ workflows:
         APP_ID: "com.dynastybuildersacademy.calltrackerplus"
         BUNDLE_ID: "com.dynastybuildersacademy.calltrackerplus"
       groups:
-        - app_store_credentials
+        - DBA_APP_STORE_KEY
         - google_credentials
       android_signing:
         - google_play
