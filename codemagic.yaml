@@ -1,6 +1,6 @@
 
 workflows:
-  build_and_release:
+  ios-workflow:
     name: Build Call Tracker+ App
     max_build_duration: 60
     environment:
