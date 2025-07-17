@@ -1,6 +1,9 @@
+
 import 'package:flutter/material.dart';
 
-void main() => runApp(CallTrackerApp());
+void main() {
+  runApp(CallTrackerApp());
+}
 
 class CallTrackerApp extends StatelessWidget {
   @override
@@ -9,8 +12,8 @@ class CallTrackerApp extends StatelessWidget {
       title: 'Call Tracker+',
       theme: ThemeData.dark(),
       home: Scaffold(
-        appBar: AppBar(title: Text('Call Tracker+')),
-        body: Center(child: Text('Welcome to Call Tracker+')),
+        appBar: AppBar(title: Text('Call Tracker+ Dashboard')),
+        body: Center(child: Text('Full Logic Scaffold Active')),
       ),
     );
   }
