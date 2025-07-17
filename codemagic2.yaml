@@ -30,14 +30,14 @@ workflows:
       - name: Run Tests
         script: flutter test
 
-      # - name: Build Android (.aab)
-      #   script: flutter build appbundle --release --build-name=1.0.0 --build-number=1
+      - name: Build Android (.aab)
+        script: flutter build appbundle --release --build-name=1.0.0 --build-number=1
 
       - name: Build iOS (.ipa)
         script: flutter build ipa --release
 
     artifacts:
-      # - build/**/outputs/**/*.aab
+      - build/**/outputs/**/*.aab
       - build/ios/ipa/*.ipa
 
     publishing:
