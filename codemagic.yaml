@@ -22,10 +22,7 @@ workflows:
         script: flutter pub get
 
       - name: Run Tests
-        script: |
-          mkdir -p test
-          echo "void main() => print('Placeholder test');" > test/placeholder_test.dart
-          flutter test
+        script: flutter test
 
       - name: Build iOS (.ipa)
         script: flutter build ipa --release

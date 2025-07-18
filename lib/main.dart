@@ -13,7 +13,7 @@ class CallTrackerApp extends StatelessWidget {
       theme: ThemeData.dark(),
       home: Scaffold(
         appBar: AppBar(title: Text('Call Tracker+ Dashboard')),
-        body: Center(child: Text('Full Logic Scaffold Active')),
+        body: Center(child: Text('Welcome to your Assistant!')),
       ),
     );
   }
