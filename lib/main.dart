@@ -9,12 +9,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Call Tracker+ Placeholder App'),
-        ),
-      ),
+    return MaterialApp(
+      title: 'Call Tracker+',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const PlaceholderScreen(),
+    );
+  }
+}
+
+class PlaceholderScreen extends StatelessWidget {
+  const PlaceholderScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Call Tracker+')),
+      body: const Center(child: Text('Welcome to Call Tracker+')),
     );
   }
 }

@@ -1,20 +1,18 @@
-
 name: call_tracker_plus
-description: A personal assistant app for insurance agents.
-publish_to: 'none'
+description: A call tracking and productivity tool for insurance agents
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.3.0 <4.0.0"
+  sdk: ">=2.19.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_local_notifications: ^19.3.1
-  google_sign_in: ^7.1.1
+  flutter_local_notifications: ^16.1.0
   table_calendar: ^3.1.0
-  http: ^1.4.0
-  intl: 0.20.2
+  http: ^0.13.5
+  google_sign_in: ^6.1.5
+  url_launcher: ^6.1.12
 
 dev_dependencies:
   flutter_test:
