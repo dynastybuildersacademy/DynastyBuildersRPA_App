@@ -1,19 +1,19 @@
-
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(CallTrackerApp());
+  runApp(const MyApp());
 }
 
-class CallTrackerApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Call Tracker+',
-      theme: ThemeData.dark(),
+    return const MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('Call Tracker+ Dashboard')),
-        body: Center(child: Text('Welcome to your Assistant!')),
+        body: Center(
+          child: Text('Call Tracker+ Placeholder App'),
+        ),
       ),
     );
   }
