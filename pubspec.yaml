@@ -10,11 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_local_notifications: ^15.1.1
-  google_sign_in: ^6.1.5
+  flutter_local_notifications: ^19.3.1
+  google_sign_in: ^7.1.1
   table_calendar: ^3.1.0
-  http: ^0.13.6
-  intl: ^0.18.1
+  http: ^1.4.0
+  intl: 0.20.2
 
 dev_dependencies:
   flutter_test:
