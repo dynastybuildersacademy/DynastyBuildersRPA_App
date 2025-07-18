@@ -10,7 +10,6 @@ workflows:
         BUNDLE_ID: "com.dynastybuildersacademy.calltrackerplus"
       groups:
         - app_store_credentials
-        - google_credentials
       ios_signing:
         distribution_type: app_store
         bundle_identifier: "com.dynastybuildersacademy.calltrackerplus"
