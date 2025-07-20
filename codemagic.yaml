@@ -9,7 +9,7 @@ workflows:
         APP_ID: "com.dynastybuildersacademy.calltrackerplus"
         BUNDLE_ID: "com.dynastybuildersacademy.calltrackerplus"
       groups:
-        - app_dev_signing
+        - app_dev_credentials
     scripts:
       - name: Install Dependencies
         script: flutter pub get
