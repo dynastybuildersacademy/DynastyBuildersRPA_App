@@ -9,12 +9,9 @@ workflows:
         APP_ID: "com.dynastybuildersacademy.calltrackerplus"
         BUNDLE_ID: "com.dynastybuildersacademy.calltrackerplus"
       groups:
-        - app_dev_signing
+        - dev_signing        # You must define this group in Codemagic settings
     ios_signing:
-      distribution_type: development
-      certificate: auto
-      provisioning_profile: auto
-      bundle_identifier: "com.dynastybuildersacademy.calltrackerplus"
+      distribution_type: development   # Only allowed field here
     scripts:
       - name: Install Dependencies
         script: flutter pub get
@@ -38,10 +35,7 @@ workflows:
         - app_store_credentials
         - app_store_signing
     ios_signing:
-      distribution_type: app_store
-      certificate: auto
-      provisioning_profile: auto
-      bundle_identifier: "com.dynastybuildersacademy.calltrackerplus"
+      distribution_type: app_store   # Only allowed field here
     integrations:
       app_store_connect: app_store_credentials
     scripts:
