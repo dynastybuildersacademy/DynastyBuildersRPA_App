@@ -10,8 +10,6 @@ workflows:
         BUNDLE_ID: "com.dynastybuildersacademy.calltrackerplus"
       groups:
         - app_dev_signing
-    ios_signing:
-      distribution_type: development
     scripts:
       - name: Install Dependencies
         script: flutter pub get
