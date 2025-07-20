@@ -32,8 +32,6 @@ workflows:
       groups:
         - app_store_credentials
         - app_store_signing
-    ios_signing:
-      distribution_type: app_store
     integrations:
       app_store_connect: app_store_credentials
     scripts:
