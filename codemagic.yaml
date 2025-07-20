@@ -1,6 +1,32 @@
 workflows:
-  ios-workflow:
-    name: Build Call Tracker+ App
+  ios-dev:
+    name: iOS Development Build (Device Testing)
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+      vars:
+        APP_ID: "com.dynastybuildersacademy.calltrackerplus"
+        BUNDLE_ID: "com.dynastybuildersacademy.calltrackerplus"
+      groups:
+        - app_dev_signing
+    ios_signing:
+      distribution_type: development
+      certificate: auto
+      provisioning_profile: auto
+      bundle_identifier: "com.dynastybuildersacademy.calltrackerplus"
+    scripts:
+      - name: Install Dependencies
+        script: flutter pub get
+      - name: Run Tests
+        script: flutter test
+      - name: Build Dev iOS (.ipa)
+        script: flutter build ipa --debug
+    artifacts:
+      - build/ios/ipa/*.ipa
+
+  ios-release:
+    name: iOS Release Build (App Store/TestFlight)
     max_build_duration: 60
     environment:
       flutter: stable
@@ -10,9 +36,12 @@ workflows:
         BUNDLE_ID: "com.dynastybuildersacademy.calltrackerplus"
       groups:
         - app_store_credentials
-      ios_signing:
-        distribution_type: app_store
-        bundle_identifier: "com.dynastybuildersacademy.calltrackerplus"
+        - app_store_signing
+    ios_signing:
+      distribution_type: app_store
+      certificate: auto
+      provisioning_profile: auto
+      bundle_identifier: "com.dynastybuildersacademy.calltrackerplus"
     integrations:
       app_store_connect: app_store_credentials
     scripts:
@@ -20,7 +49,7 @@ workflows:
         script: flutter pub get
       - name: Run Tests
         script: flutter test
-      - name: Build iOS (.ipa)
+      - name: Build Release iOS (.ipa)
         script: flutter build ipa --release
     artifacts:
       - build/ios/ipa/*.ipa
