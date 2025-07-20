@@ -32,9 +32,7 @@ workflows:
       groups:
         - app_store_credentials
         - app_store_signing
-    ios_signing:
-      distribution_type: app_store   # Only allowed field here
-    integrations:
+       integrations:
       app_store_connect: app_store_credentials
     scripts:
       - name: Install Dependencies
