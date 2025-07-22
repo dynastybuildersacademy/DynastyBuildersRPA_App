@@ -1,6 +1,6 @@
 workflows:
   ios-dev:
-    name: iOS Development Build (Device Testing)
+    name: iOS Development Build (No Signing)
     max_build_duration: 60
     environment:
       flutter: stable
@@ -8,27 +8,20 @@ workflows:
       vars:
         APP_ID: "com.dynastybuildersacademy.calltrackerplus"
         BUNDLE_ID: "com.dynastybuildersacademy.calltrackerplus"
-      groups:
-        - app_dev_credentials
-        - app_store_credentials
-    integrations:
-      app_store_connect: app_store_credentials
     scripts:
       - name: Install Dependencies
         script: flutter pub get
       - name: Run Tests
         script: flutter test
-      - name: Build Dev iOS (.ipa)
-        script: flutter build ipa --debug
+      - name: Build Dev iOS (.ipa - no signing)
+        script: |
+          flutter build ios --debug --no-codesign
     artifacts:
-      - build/ios/ipa/*.ipa
-    publishing:
-      app_store_connect:
-        auth: integration
-        submit_to_testflight: true
+      - build/ios/iphoneos/*.app
+      - build/ios/iphoneos/*.xcarchive
 
   ios-release:
-    name: iOS Release Build (App Store/TestFlight)
+    name: iOS Release Build (No Signing)
     max_build_duration: 60
     environment:
       flutter: stable
@@ -36,20 +29,14 @@ workflows:
       vars:
         APP_ID: "com.dynastybuildersacademy.calltrackerplus"
         BUNDLE_ID: "com.dynastybuildersacademy.calltrackerplus"
-      groups:
-        - app_store_credentials
-    integrations:
-      app_store_connect: app_store_credentials
     scripts:
       - name: Install Dependencies
         script: flutter pub get
       - name: Run Tests
         script: flutter test
-      - name: Build Release iOS (.ipa)
-        script: flutter build ipa --release
+      - name: Build Release iOS (.ipa - no signing)
+        script: |
+          flutter build ios --release --no-codesign
     artifacts:
-      - build/ios/ipa/*.ipa
-    publishing:
-      app_store_connect:
-        auth: integration
-        submit_to_testflight: true
+      - build/ios/iphoneos/*.app
+      - build/ios/iphoneos/*.xcarchive
