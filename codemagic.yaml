@@ -13,7 +13,7 @@ workflows:
         script: flutter pub get
       - name: Run Tests
         script: flutter test
-      - name: Build Dev iOS (.ipa - no signing)
+      - name: Build Debug iOS (.app - no signing)
         script: |
           flutter build ios --debug --no-codesign
     artifacts:
@@ -34,7 +34,7 @@ workflows:
         script: flutter pub get
       - name: Run Tests
         script: flutter test
-      - name: Build Release iOS (.ipa - no signing)
+      - name: Build Release iOS (.app - no signing)
         script: |
           flutter build ios --release --no-codesign
     artifacts:
